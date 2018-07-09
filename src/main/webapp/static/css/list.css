@@ -1,0 +1,11 @@
+@charset "UTF-8";
+.data{
+	height:530px;
+	overflow: auto;
+}
+.row{
+	margin-bottom: 10px;
+}
+#pageInfoArea{
+	margin-top: 25px;
+}
