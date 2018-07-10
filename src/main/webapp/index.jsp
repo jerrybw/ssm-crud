@@ -197,7 +197,8 @@
 				<button class="btn btn-primary" id="employeeAddBtn">新增</button>
 				<shiro:hasRole name="admin">
 					<button class="btn btn-danger" id="empBatchDeleteBtn">删除</button>
-				</shiro:hasRole>
+				</shiro:hasRole>&nbsp;&nbsp;
+				<a href="${APP_PATH}/shiro/logout"><button class="btn btn-primary">登出</button></a>
 			</div>
 		</div>
 		<!-- 表格数据 -->
@@ -251,14 +252,12 @@
 // 			$("#queryCondition").focusin(loseFocus);
 		})
 	</script>
-		<shiro:hasRole name="admin">
-		admin
+	<shiro:hasRole name="admin">
 		<script>
 			isAdmin = true;
 		</script>
 	</shiro:hasRole>
 	<shiro:hasRole name="manager">
-		manager
 		<script>
 			isManager = true;
 		</script>
