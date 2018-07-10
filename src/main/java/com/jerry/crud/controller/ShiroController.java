@@ -2,7 +2,8 @@ package com.jerry.crud.controller;
 
 import javax.servlet.http.HttpServletRequest;
 
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.UsernamePasswordToken;
@@ -20,7 +21,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 @RequestMapping("/shiro")
 public class ShiroController {
 	
-	private Logger logger = Logger.getLogger("LoginLogger");
+	private Logger logger = LogManager.getLogger(ShiroController.class);
 	
 	@RequestMapping(value="/login",method=RequestMethod.POST)
 	public String login(HttpServletRequest request,@RequestParam("username")String username,@RequestParam("password")String password) {

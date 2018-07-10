@@ -21,7 +21,6 @@ public class SecondRealm extends AuthenticatingRealm{
 	 */
 	@Override
 	protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken token) throws AuthenticationException {
-		System.out.println("[secondRealm]");
 		// TODO Auto-generated method stub
 		UsernamePasswordToken upToken = (UsernamePasswordToken) token;
 		String username = upToken.getUsername();

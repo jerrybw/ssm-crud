@@ -30,7 +30,6 @@ public class ShiroRealm extends AuthorizingRealm {
 	 */
 	@Override
 	protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken token) throws AuthenticationException {
-		System.out.println("firstRealm");
 		// TODO Auto-generated method stub
 		UsernamePasswordToken upToken = (UsernamePasswordToken) token;
 		String username = upToken.getUsername();
@@ -58,9 +57,7 @@ public class ShiroRealm extends AuthorizingRealm {
 	@Override
 	protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principals) {
 		// TODO Auto-generated method stub
-		System.out.println("check roles");
 		Object primaryPrincipal = principals.getPrimaryPrincipal();
-		System.out.println(primaryPrincipal);
 		Set<String> roles = new LinkedHashSet<>();
 		roles.add("user");
 		
