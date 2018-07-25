@@ -36,6 +36,7 @@ public class ShiroController {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 				logger.info("登陆失败【username："+username+" password："+password + "】");
+				return "login";
 			}
 		}
 		return "index";
