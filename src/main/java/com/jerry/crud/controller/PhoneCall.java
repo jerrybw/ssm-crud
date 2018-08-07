@@ -2,6 +2,8 @@ package com.jerry.crud.controller;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -33,9 +35,41 @@ public class PhoneCall {
 			param.put("sign", MD5Util.md5Password("7000002"+timestamp+"2ff82f103ba7aac0055da123d56168c6"));
 			param.put("cno", cno);
 			param.put("tel", tel);
-			HttpRequestUtil.sendPost(url, param);
+			String result = HttpRequestUtil.sendPost(url, param);
+			System.out.println(result);
+			Timer timer = new Timer();
+
+	        //延迟1000ms执行程序
+	        timer.schedule(new TimerTask() {
+	            @Override
+	            public void run() {
+	    			String url = "https://api-test-2.cticloud.cn/interface/v10/agent/unlink";
+	    			Map<String, String> param = new HashMap<>();
+	    			param.put("validateType", "2");
+	    			param.put("enterpriseId", "7000002");
+	    			long timestamp = System.currentTimeMillis()/1000;
+	    			param.put("timestamp",timestamp + "");
+	    			param.put("sign", MD5Util.md5Password("7000002"+timestamp+"2ff82f103ba7aac0055da123d56168c6"));
+	    			param.put("cno", cno);
+	    			String result = HttpRequestUtil.sendPost(url, param);
+	    			System.out.println(result);
+	            }
+	        }, 65000);
 		}
 		return res;
+	}
+	
+	class MyThread implements Runnable{
+
+		/* (non-Javadoc)
+		 * @see java.lang.Runnable#run()
+		 */
+		@Override
+		public void run() {
+			
+			
+		}
+		
 	}
 
 }
