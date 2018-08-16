@@ -26,6 +26,7 @@ public class TestController {
 	@ResponseBody
 	@RequestMapping("/json")
 	public Object testJson(HttpServletRequest request) {
+		System.out.println("收到请求-------");
 		Map<String, String[]> parameterMap = request.getParameterMap();
 		Map<String, Object> res = new HashMap<>();
 		Set<Entry<String, String[]>> entrySet = parameterMap.entrySet();
