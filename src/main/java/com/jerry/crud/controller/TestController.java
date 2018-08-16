@@ -25,14 +25,14 @@ public class TestController {
 	
 	@ResponseBody
 	@RequestMapping("/json")
-	public Object testJson(HttpServletRequest request) {
+	public Object testJson(@RequestBody Map<String, Object> map,HttpServletRequest request) {
 		System.out.println("收到请求-------");
-		Map<String, String[]> parameterMap = request.getParameterMap();
+//		Map<String, Object> parameterMap = request.getParameterMap();
 		Map<String, Object> res = new HashMap<>();
-		Set<Entry<String, String[]>> entrySet = parameterMap.entrySet();
-		for (Entry<String, String[]> entry : entrySet) {
+		Set<Entry<String, Object>> entrySet = map.entrySet();
+		for (Entry<String, Object> entry : entrySet) {
 			System.out.println("key "+entry.getKey());
-			System.out.println("value "+entry.getValue()[0]);
+			System.out.println("value "+entry.getValue());
 		}
 		res.put("code", "200");
 		return res;
