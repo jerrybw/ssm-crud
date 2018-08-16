@@ -3,8 +3,12 @@ package com.jerry.crud.controller;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Map.Entry;
+
+import javax.servlet.http.HttpServletRequest;
+
 import java.util.Set;
 
+import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,12 +25,13 @@ public class TestController {
 	
 	@ResponseBody
 	@RequestMapping("/json")
-	public Object testJson(@RequestBody Map<String,Object> params) {
+	public Object testJson(HttpServletRequest request) {
+		Map<String, String[]> parameterMap = request.getParameterMap();
 		Map<String, Object> res = new HashMap<>();
-		Set<Entry<String,Object>> entrySet = params.entrySet();
-		for (Entry<String, Object> entry : entrySet) {
+		Set<Entry<String, String[]>> entrySet = parameterMap.entrySet();
+		for (Entry<String, String[]> entry : entrySet) {
 			System.out.println("key "+entry.getKey());
-			System.out.println("value "+entry.getValue());
+			System.out.println("value "+entry.getValue()[0]);
 		}
 		res.put("code", "200");
 		return res;

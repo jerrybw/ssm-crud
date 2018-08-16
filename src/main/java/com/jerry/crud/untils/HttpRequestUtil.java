@@ -110,21 +110,6 @@ public class HttpRequestUtil {
 		}
 		return reStr;
 	}
-	
- 
-	/**
-	 * 测试主方法
-	 * @param args
-	 */
-	public static void main(String[] args) {
-		Map<String, String> mapParam = new HashMap<String, String>();
-		mapParam.put("name", "张三");
-		mapParam.put("validation","test");
-		String pathUrl = "http://localhost/testPost.action";
-		String result = sendPost(pathUrl, mapParam);
-		System.out.println(result);
- 
-	}
 
 
 }
