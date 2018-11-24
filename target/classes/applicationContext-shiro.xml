@@ -7,15 +7,15 @@
 	<!-- SecurityManager -->
 	<bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
 <!--         <property name="cacheManager" ref="cacheManager"/> -->
-        <property name="authenticator" ref="authenticator"></property>
+<!--         <property name="authenticator" ref="authenticator"></property> -->
         
-        <property name="realms">
-        	<list>
-    			<ref bean="jdbcRealm"/>
-    			<ref bean="secondRealm"/>
-    		</list>
-        </property>
-        
+<!--         <property name="realms"> -->
+<!--         	<list> -->
+<!--     			<ref bean="jdbcRealm"/> -->
+<!--     			<ref bean="secondRealm"/> -->
+<!--     		</list> -->
+<!--         </property> -->
+        	<property name="realm" ref="jdbcRealm"></property>
 <!--         <property name="sessionManager" ref="sessionManager"></property> -->
     </bean>
     <!--  

@@ -1,6 +1,6 @@
 package com.jerry.crud.test;
 
-import com.jerry.crud.untils.MD5Util;
+import java.util.Random;
 
 /**
  * @author 向博文
@@ -8,6 +8,9 @@ import com.jerry.crud.untils.MD5Util;
  */
 public class MD5Test {
 	public static void main(String[] args) {
-		System.out.println(MD5Util.md5Password("123456"));
+		Random random = new Random();
+		for(int i = 0;i <= 100;i++) {
+			System.out.println(random.nextInt(7));
+		}
 	}
 }

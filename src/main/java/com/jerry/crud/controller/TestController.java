@@ -2,13 +2,12 @@ package com.jerry.crud.controller;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Random;
 import java.util.Map.Entry;
+import java.util.Set;
 
 import javax.servlet.http.HttpServletRequest;
 
-import java.util.Set;
-
-import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -27,6 +26,7 @@ public class TestController {
 	@RequestMapping("/json")
 	public Object testJson(@RequestBody Map<String, Object> map,HttpServletRequest request) {
 		System.out.println("收到请求-------");
+		String[] strings = {"床前明月光","燕草如碧丝","疑是地上霜","秦桑低绿枝","举头望明月","当君怀归日","低头思故乡","是妾断肠时","死别已吞声","春风不相识","生别常恻恻","何事入罗帏"};
 //		Map<String, Object> parameterMap = request.getParameterMap();
 		Map<String, Object> res = new HashMap<>();
 		Set<Entry<String, Object>> entrySet = map.entrySet();
@@ -34,8 +34,12 @@ public class TestController {
 			System.out.println("key "+entry.getKey());
 			System.out.println("value "+entry.getValue());
 		}
-		res.put("code", "200");
+		res.put("type", "play");
+		Random random = new Random();
+		res.put("playObject",strings[random.nextInt(strings.length)]);
+		res.put("playType", "play");
 		return res;
 	}
+	
 
 }
