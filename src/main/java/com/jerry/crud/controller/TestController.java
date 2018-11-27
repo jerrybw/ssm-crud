@@ -37,7 +37,7 @@ public class TestController {
 		res.put("type", "play");
 		Random random = new Random();
 		res.put("playObject",strings[random.nextInt(strings.length)]);
-		res.put("playType", "play");
+		res.put("playType", "4");
 		return res;
 	}
 	
